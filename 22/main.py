@@ -76,7 +76,6 @@ def build_grid(bricks, max_x, max_y, max_z):
 
             lowest_z[pos_x, pos_y] = pos_z
         under[brick_id] = bricks_under
-        #bricks[i] = (brick_id, blocks)
         for block in blocks:
             grid[tuple(block)] = brick_id
 
@@ -108,8 +107,6 @@ def task():
 
     bricks = sorted(bricks, key=cmp_to_key(compare))
     grid, under, above = build_grid(bricks, max_x, max_y, max_z)
-    print(under)
-    print(above)
 
     fall = {}
     for brick in bricks:
