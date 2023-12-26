@@ -1,2 +1,5 @@
 *.txt
 .idea
+.aoc_tiles/*
+!.aoc_tiles/tiles/
+session.cookie
