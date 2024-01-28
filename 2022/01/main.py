@@ -12,7 +12,7 @@ def task():
         if len(num) == 0:
             elves.append(sums)
             sums = 0
-            continue
+            continue 
         sums += int(num)
     else:
         elves.append(sums)

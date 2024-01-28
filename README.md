@@ -77,5 +77,11 @@
 <a href="2023/25/main.py">
   <img src=".aoc_tiles/tiles/2023/25.png" width="161px">
 </a>
+<h1 align="center">
+  2022 - 2 ⭐
+</h1>
+<a href="2022/01/main.py">
+  <img src=".aoc_tiles/tiles/2022/01.png" width="161px">
+</a>
 <!-- AOC TILES END -->
  
