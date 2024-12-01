@@ -16,6 +16,9 @@ public class Day01 implements Day{
     public Day01(boolean testing){
         this.inputHelper = new InputHelper();
         this.lines = this.inputHelper.readLines(testing, DAY);
+        if(this.lines == null){
+            System.exit(-1);
+        }
         initInput();
     }
 
