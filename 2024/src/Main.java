@@ -5,7 +5,7 @@ public class Main {
         switch (Integer.parseInt(args[1])){
             case 1 -> day = new Day01(Boolean.parseBoolean(args[0]));
             default -> {
-                System.out.println("Second argument must be a number between 1 and 25");
+                System.out.println("Second argument must be a number between 1 and 25"); 
                 System.exit(-1);
             }
         }
