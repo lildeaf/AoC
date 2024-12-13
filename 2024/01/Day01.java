@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Day01 implements Day{
     private final InputHelper inputHelper;
-    ArrayList<String> lines;
+    final ArrayList<String> lines;
 
     private static final String DAY = "01";
 
@@ -21,8 +21,8 @@ public class Day01 implements Day{
     }
 
     private void initInput(){
-        this.list1 = new ArrayList<Integer>();
-        this.list2 = new ArrayList<Integer>();
+        this.list1 = new ArrayList<>();
+        this.list2 = new ArrayList<>();
 
         for (String line : lines){
             String[] l = line.split(" {3}");
@@ -48,7 +48,7 @@ public class Day01 implements Day{
     @Override
     public void solveStage2() {
         System.out.println("Solving Stage 2...");
-        HashMap<Integer, Integer> countMap = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> countMap = new HashMap<>();
         for(Integer id : list2){
             countMap.compute(id , (k, count) -> (count == null) ? 1 : (count + 1));
         }

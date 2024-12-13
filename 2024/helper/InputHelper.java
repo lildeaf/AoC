@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class InputHelper {
+    private final String separator = System.getProperty("file.separator");
+
     public ArrayList<String> readLines(boolean testing, String day){
-        ArrayList<String> lines = new ArrayList<String>();
+        ArrayList<String> lines = new ArrayList<>();
         try{
-            String file = String.format("inputFiles/%s%s.txt", (testing ? "example" : "input"), day);
+            String file = "inputFiles" + separator + day + separator + (testing ? "example" : "input") + ".txt";
             File myObj = new File(file);
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()){

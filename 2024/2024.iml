@@ -6,6 +6,30 @@
       <sourceFolder url="file://$MODULE_DIR$/01" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/helper" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/02" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/03" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/04" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/05" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/06" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/07" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/08" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/09" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/10" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/11" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/12" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/13" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/14" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/15" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/16" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/17" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/18" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/19" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/21" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/22" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/23" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/24" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/25" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
