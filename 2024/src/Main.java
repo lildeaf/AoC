@@ -16,7 +16,6 @@ public class Main {
             case 11 -> day = new Day11(Boolean.parseBoolean(args[0]));
             case 12 -> day = new Day12(Boolean.parseBoolean(args[0]));
             case 13 -> day = new Day13(Boolean.parseBoolean(args[0]));
-/*
             case 14 -> day = new Day14(Boolean.parseBoolean(args[0]));
             case 15 -> day = new Day15(Boolean.parseBoolean(args[0]));
             case 16 -> day = new Day16(Boolean.parseBoolean(args[0]));
@@ -29,7 +28,6 @@ public class Main {
             case 23 -> day = new Day23(Boolean.parseBoolean(args[0]));
             case 24 -> day = new Day24(Boolean.parseBoolean(args[0]));
             case 25 -> day = new Day25(Boolean.parseBoolean(args[0]));
- */
             default -> {
                 System.out.println("Second argument must be a number between 1 and 25"); 
                 System.exit(-1);
