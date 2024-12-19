@@ -33,21 +33,21 @@ public class Day06 implements Day{
                 break;
         }
 
-        Position pos = new Position(x, y);
+        Position pos = new Position(x, y, this.lines);
         Set<Position> visited = new HashSet<>();
         int direction = 0; //0 = up, 1 = r, 2 = d, 3 = l
         while(true){
             visited.add(pos);
-            Position nextPos = new Position(pos.getX(), pos.getY());
+            Position nextPos = new Position(pos.getX(), pos.getY(), this.lines);
             nextPos.move(direction);
 
-            if(nextPos.outOfBounds(this.lines))
+            if(nextPos.outOfBounds())
                 break;
 
             char nextC = this.lines.get(nextPos.getY()).charAt(nextPos.getX());
             if(nextC == '#'){
                 direction = (direction+1)%4;
-                pos = new Position(pos.getX(), pos.getY());
+                pos = new Position(pos.getX(), pos.getY(), this.lines);
             }else {
                 pos = nextPos;
             }
@@ -57,7 +57,7 @@ public class Day06 implements Day{
     }
 
     private boolean checkDir(Position pos, int direction, Position newObstacle){
-        Position current = new Position(pos.getX(), pos.getY());
+        Position current = new Position(pos.getX(), pos.getY(), this.lines);
         int currentDir = direction;
         HashMap<Position, Set<Integer>> visited = new HashMap<>();
 
@@ -69,10 +69,10 @@ public class Day06 implements Day{
             d.add(currentDir);
             visited.put(current, d);
 
-            Position nextPos = new Position(current.getX(), current.getY());
+            Position nextPos = new Position(current.getX(), current.getY(), this.lines);
             nextPos.move(currentDir);
 
-            if(nextPos.outOfBounds(this.lines))
+            if(nextPos.outOfBounds())
                 break;
 
             char nextC = this.lines.get(nextPos.getY()).charAt(nextPos.getX());
@@ -105,7 +105,7 @@ public class Day06 implements Day{
                 break;
         }
 
-        Position pos = new Position(x, y);
+        Position pos = new Position(x, y, this.lines);
         HashMap<Position, Set<Integer>> positionsWithDirections = new HashMap<>();
         Set<Position> obstacles = new HashSet<>();
         Set<Position> checked = new HashSet<>();
@@ -117,16 +117,16 @@ public class Day06 implements Day{
             s.add(direction);
             positionsWithDirections.put(pos, s);
 
-            Position nextPos = new Position(pos.getX(), pos.getY());
+            Position nextPos = new Position(pos.getX(), pos.getY(), this.lines);
             nextPos.move(direction);
 
-            if(nextPos.outOfBounds(this.lines))
+            if(nextPos.outOfBounds())
                 break;
 
             char nextC = this.lines.get(nextPos.getY()).charAt(nextPos.getX());
             if(nextC == '#'){
                 direction = (direction+1)%4;
-                pos = new Position(pos.getX(), pos.getY());
+                pos = new Position(pos.getX(), pos.getY(), this.lines);
             }else {
                 if(!checked.contains(nextPos) &&
                         nextC == '.' &&

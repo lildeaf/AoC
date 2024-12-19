@@ -16,7 +16,7 @@ public class Day13 implements Day{
     }
 
     private Position getPosition(String line, String delimiter){
-        Position button = new Position();
+        Position button = new Position(null);
         String[] vals = line.split(", ");
 
         button.setX(Integer.parseInt(vals[0].split(delimiter)[1]));

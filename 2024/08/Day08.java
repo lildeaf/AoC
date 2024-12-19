@@ -30,17 +30,17 @@ public class Day08 implements Day {
                 if (c == '.')
                     continue;
 
-                Position newAntenna = new Position(x, y);
+                Position newAntenna = new Position(x, y, this.lines);
                 ArrayList<Position> positions = antennas.getOrDefault(c, new ArrayList<>());
 
                 for (Position p : positions) {
-                    Position diff = new Position(p.getX() - newAntenna.getX(), p.getY() - newAntenna.getY());
-                    Position one = new Position(p.getX() + diff.getX(), p.getY() + diff.getY());
-                    Position two = new Position(newAntenna.getX() - diff.getX(), newAntenna.getY() - diff.getY());
+                    Position diff = new Position(p.getX() - newAntenna.getX(), p.getY() - newAntenna.getY(), this.lines);
+                    Position one = new Position(p.getX() + diff.getX(), p.getY() + diff.getY(), this.lines);
+                    Position two = new Position(newAntenna.getX() - diff.getX(), newAntenna.getY() - diff.getY(), this.lines);
 
-                    if (!one.outOfBounds(this.lines))
+                    if (!one.outOfBounds())
                         antinodes.add(one);
-                    if (!two.outOfBounds(this.lines))
+                    if (!two.outOfBounds())
                         antinodes.add(two);
                 }
 
@@ -65,21 +65,21 @@ public class Day08 implements Day {
                 if (c == '.')
                     continue;
 
-                Position newAntenna = new Position(x, y);
+                Position newAntenna = new Position(x, y, this.lines);
                 ArrayList<Position> positions = antennas.getOrDefault(c, new ArrayList<>());
 
                 for (Position p : positions) {
-                    Position diff = new Position(p.getX() - newAntenna.getX(), p.getY() - newAntenna.getY());
-                    Position ant = new Position(p);
-                    while(!ant.outOfBounds(this.lines)){
-                        antinodes.add(new Position(ant));
-                        ant = new Position(ant.getX() + diff.getX(), ant.getY() + diff.getY());
+                    Position diff = new Position(p.getX() - newAntenna.getX(), p.getY() - newAntenna.getY(), this.lines);
+                    Position ant = new Position(p, this.lines);
+                    while(!ant.outOfBounds()){
+                        antinodes.add(new Position(ant, this.lines));
+                        ant = new Position(ant.getX() + diff.getX(), ant.getY() + diff.getY(), this.lines);
                     }
 
-                    ant = new Position(newAntenna);
-                    while(!ant.outOfBounds(this.lines)){
-                        antinodes.add(new Position(ant));
-                        ant = new Position(ant.getX() - diff.getX(), ant.getY() - diff.getY());
+                    ant = new Position(newAntenna, this.lines);
+                    while(!ant.outOfBounds()){
+                        antinodes.add(new Position(ant, this.lines));
+                        ant = new Position(ant.getX() - diff.getX(), ant.getY() - diff.getY(), this.lines);
                     }
                 }
 

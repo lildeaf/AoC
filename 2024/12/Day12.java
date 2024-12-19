@@ -20,7 +20,7 @@ public class Day12 implements Day{
         if(region.contains(current))
             return 0;
 
-        if(current.outOfBounds(this.lines) || this.lines.get(current.getY()).charAt(current.getX()) != plant)
+        if(current.outOfBounds() || this.lines.get(current.getY()).charAt(current.getX()) != plant)
             return 1;
 
         region.add(current);
@@ -41,7 +41,7 @@ public class Day12 implements Day{
             ArrayList<Boolean> surrounding = new ArrayList<>();
             for (int y = -1; y < 2; y++){
                 for (int x = -1; x < 2; x++){
-                    surrounding.add(area.contains(new Position(p.getX() + x, p.getY() + y)));
+                    surrounding.add(area.contains(new Position(p.getX() + x, p.getY() + y, this.lines)));
                 }
             }
             /*
@@ -88,7 +88,7 @@ public class Day12 implements Day{
         for(int y = 0; y < this.lines.size(); y++){
             String line = this.lines.get(y);
             for(int x = 0; x < line.length(); x++){
-                Position p = new Position(x,y);
+                Position p = new Position(x,y, this.lines);
                 if (visited.contains(p))
                     continue;
 
@@ -109,7 +109,7 @@ public class Day12 implements Day{
         for(int y = 0; y < this.lines.size(); y++){
             String line = this.lines.get(y);
             for(int x = 0; x < line.length(); x++){
-                Position p = new Position(x,y);
+                Position p = new Position(x,y, this.lines);
                 if (visited.contains(p))
                     continue;
 

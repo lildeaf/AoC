@@ -1,6 +1,6 @@
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
-  2024 - 28 ⭐
+  2024 - 38 ⭐
 </h1>
 <a href="2024/01/Day01.java">
   <img src=".aoc_tiles/tiles/2024/01.png" width="161px">
@@ -43,6 +43,21 @@
 </a>
 <a href="2024/14/Day14.java">
   <img src=".aoc_tiles/tiles/2024/14.png" width="161px">
+</a>
+<a href="2024/15/Day15.java">
+  <img src=".aoc_tiles/tiles/2024/15.png" width="161px">
+</a>
+<a href="2024/16/Day16.java">
+  <img src=".aoc_tiles/tiles/2024/16.png" width="161px">
+</a>
+<a href="2024/17/Day17.java">
+  <img src=".aoc_tiles/tiles/2024/17.png" width="161px">
+</a>
+<a href="2024/18/Day18.java">
+  <img src=".aoc_tiles/tiles/2024/18.png" width="161px">
+</a>
+<a href="2024/19/Day19.java">
+  <img src=".aoc_tiles/tiles/2024/19.png" width="161px">
 </a>
 <h1 align="center">
   2023 - 50 ⭐

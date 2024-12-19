@@ -26,7 +26,7 @@ public class Day10 implements Day{
         }
 
         //check neighbors
-        Set<Position> neighbors = current.getNeighborsInBounds(this.lines); // neighbors in bound
+        Set<Position> neighbors = current.getNeighborsInBounds(); // neighbors in bound
         for(Position neighbor : neighbors){
             char neighbor_c = this.lines.get(neighbor.getY()).charAt(neighbor.getX());
             if(neighbor_c == c+1){
@@ -46,7 +46,7 @@ public class Day10 implements Day{
         }
 
         //check neighbors
-        Set<Position> neighbors = current.getNeighborsInBounds(this.lines); // neighbors in bound
+        Set<Position> neighbors = current.getNeighborsInBounds(); // neighbors in bound
         for(Position neighbor : neighbors){
             char neighbor_c = this.lines.get(neighbor.getY()).charAt(neighbor.getX());
             if(neighbor_c == c+1){
@@ -69,7 +69,7 @@ public class Day10 implements Day{
                 if(line.charAt(x) != '0')
                     continue;
 
-                Set<Position> p = checkTrails(new Position(x, y));
+                Set<Position> p = checkTrails(new Position(x, y, this.lines));
                 sum += p.size();
             }
         }
@@ -89,7 +89,7 @@ public class Day10 implements Day{
                 if(line.charAt(x) != '0')
                     continue;
 
-                sum += checkDistinctTrails(new Position(x, y));
+                sum += checkDistinctTrails(new Position(x, y, this.lines));
             }
         }
 

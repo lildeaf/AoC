@@ -6,6 +6,8 @@ public class Position {
     private int x;
     private int y;
 
+    private ArrayList<String> map;
+
     public int getX() {
         return x;
     }
@@ -29,38 +31,43 @@ public class Position {
         this.y += y;
     }
 
-    public Position() {
+    public Position(ArrayList<String> map) {
         this.x = 0;
         this.y = 0;
+
+        this.map = map;
     }
 
-    public Position(int x, int y) {
+    public Position(int x, int y, ArrayList<String> map) {
         this.x = x;
         this.y = y;
+
+        this.map = map;
     }
 
-    public Position(Position pos) {
+    public Position(Position pos, ArrayList<String> map) {
         this.x = pos.getX();
         this.y = pos.getY();
+        this.map = map;
     }
 
-    public boolean outOfBounds(ArrayList<String> map) {
+    public boolean outOfBounds() {
         return this.y < 0 || this.x < 0 || this.y >= map.size() || this.x >= map.get(this.y).length();
     }
 
-    public Set<Position> getNeighborsInBounds(ArrayList<String> map){
+    public Set<Position> getNeighborsInBounds(){
         Set<Position> neighbors = new HashSet<>();
         int maxY = map.size();
         int maxX = map.getFirst().length();
 
         if(this.y - 1 >= 0)
-            neighbors.add(new Position(this.x, this.y - 1));
+            neighbors.add(new Position(this.x, this.y - 1, this.map));
         if(this.y + 1 < maxY)
-            neighbors.add(new Position(this.x, this.y + 1));
+            neighbors.add(new Position(this.x, this.y + 1, this.map));
         if(this.x - 1 >= 0)
-            neighbors.add(new Position(this.x - 1, this.y));
+            neighbors.add(new Position(this.x - 1, this.y, this.map));
         if(this.x + 1 < maxX)
-            neighbors.add(new Position(this.x + 1, this.y));
+            neighbors.add(new Position(this.x + 1, this.y, this.map));
 
         return neighbors;
     }
@@ -68,10 +75,10 @@ public class Position {
     public Set<Position> getAllNeighbors(){
         Set<Position> neighbors = new HashSet<>();
 
-        neighbors.add(new Position(this.x, this.y - 1));
-        neighbors.add(new Position(this.x, this.y + 1));
-        neighbors.add(new Position(this.x - 1, this.y));
-        neighbors.add(new Position(this.x + 1, this.y));
+        neighbors.add(new Position(this.x, this.y - 1, this.map));
+        neighbors.add(new Position(this.x, this.y + 1, this.map));
+        neighbors.add(new Position(this.x - 1, this.y, this.map));
+        neighbors.add(new Position(this.x + 1, this.y, this.map));
 
         return neighbors;
     }
@@ -97,7 +104,7 @@ public class Position {
 
     @Override
     public int hashCode() {
-        return y * 10 + x;
+        return y * this.map.getFirst().length() + x;
     }
 
     @Override

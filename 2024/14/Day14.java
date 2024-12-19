@@ -2,9 +2,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.awt.image.WritableRaster;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class Day14 implements Day{
     private final InputHelper inputHelper;
@@ -15,6 +13,8 @@ public class Day14 implements Day{
     private int spaceX;
     private int spaceY;
 
+    ArrayList<String> space;
+
     public Day14(boolean testing){
         this.inputHelper = new InputHelper();
         this.lines = this.inputHelper.readLines(testing, DAY);
@@ -24,6 +24,9 @@ public class Day14 implements Day{
 
         this.spaceX = testing ? 11 : 101;
         this.spaceY = testing ? 7 : 103;
+
+        String s = new String(new char[spaceX]).replace('\0', ' ');
+        this.space = new ArrayList<>(Collections.nCopies(spaceY, s));
     }
 
     private void printToFile(HashSet<Position> robots, String fileName){
@@ -31,7 +34,7 @@ public class Day14 implements Day{
         WritableRaster raster = b.getRaster();
         for (int y = 0; y < this.spaceY; y++){
             for (int x = 0; x < this.spaceX; x++){
-                if(robots.contains(new Position(x,y)))
+                if(robots.contains(new Position(x,y, this.space)))
                     raster.setSample(x,y,0, 255);
             }
         }
@@ -40,6 +43,22 @@ public class Day14 implements Day{
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    private long count(HashSet<Position> robots){
+        long s = 0;
+        for (int y = 0; y < this.spaceY; y++){
+            for (int x = 0; x < this.spaceX; x++){
+                Position p = new Position(x,y, this.space);
+                if(robots.contains(p)){
+                    Set<Position> neighbors = p.getAllNeighbors();
+                    for (Position n : neighbors){
+                        s += robots.contains(n) ? 1 : 0;
+                    }
+                }
+            }
+        }
+        return s;
     }
 
     private static class Robot{
@@ -62,9 +81,9 @@ public class Day14 implements Day{
             this.v = v;
         }
 
-        public Robot(){
-            this.p = new Position();
-            this.v = new Position();
+        public Robot(ArrayList<String> space){
+            this.p = new Position(space);
+            this.v = new Position(space);
         }
 
         public void move(int seconds, int spaceX, int spaceY){
@@ -95,7 +114,7 @@ public class Day14 implements Day{
     }
 
     private Position getPosition(String line){
-        Position p = new Position();
+        Position p = new Position(this.space);
 
         String[] coords = line.split(",");
         p.setX(Integer.parseInt(coords[0]));
@@ -112,7 +131,7 @@ public class Day14 implements Day{
         ArrayList<Robot> robots = new ArrayList<>();
 
         for(String line : this.lines){
-            Robot robot = new Robot();
+            Robot robot = new Robot(this.space);
             String[] robotLine = line.split(" ");
             robot.setPosition(getPosition(robotLine[0].substring(2)));
             robot.setVelocity(getPosition(robotLine[1].substring(2)));
@@ -148,7 +167,7 @@ public class Day14 implements Day{
         ArrayList<Robot> robots = new ArrayList<>();
 
         for(String line : this.lines){
-            Robot robot = new Robot();
+            Robot robot = new Robot(this.space);
             String[] robotLine = line.split(" ");
             robot.setPosition(getPosition(robotLine[0].substring(2)));
             robot.setVelocity(getPosition(robotLine[1].substring(2)));
@@ -157,13 +176,27 @@ public class Day14 implements Day{
         }
 
         String outDir = "14"+ System.getProperty("file.separator") + "outFiles"+ System.getProperty("file.separator");
+        HashMap<Integer, Long> countMap = new HashMap<>();
         for (int i= 0; i < this.spaceX*this.spaceY; i++){
             HashSet<Position> robotPositions = new HashSet<>(robots.stream().map(Robot::getPosition).toList());
-            printToFile(robotPositions, outDir + "time" + i + ".png");
+            //printToFile(robotPositions, outDir + "time" + i + ".png");
+            countMap.put(i, count(robotPositions));
 
             for (Robot r : robots)
                 r.move(1, this.spaceX, this.spaceY);
         }
+
+        long max = 0;
+        int maxI = 0;
+        for (int i= 0; i < this.spaceX*this.spaceY; i++){
+            if(countMap.get(i) < max)
+                continue;
+
+            max = countMap.get(i);
+            maxI = i;
+        }
+
+        System.out.println("MAX: " + maxI);
 
         System.out.println("Solution Stage 2: check outFiles folder");
     }
