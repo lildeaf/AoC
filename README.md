@@ -1,7 +1,46 @@
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
-  Advent of Code - 150/528 ⭐
+  Advent of Code - 174/528 ⭐
 </h1>
+<h1 align="center">
+  2025 - 24 ⭐ - Smalltalk
+</h1>
+<a href="2025/01/Day01.cs">
+  <img src=".aoc_tiles/tiles/2025/01.png" width="203px">
+</a>
+<a href="2025/02/Day02.cs">
+  <img src=".aoc_tiles/tiles/2025/02.png" width="203px">
+</a>
+<a href="2025/03/Day03.cs">
+  <img src=".aoc_tiles/tiles/2025/03.png" width="203px">
+</a>
+<a href="2025/04/Day04.cs">
+  <img src=".aoc_tiles/tiles/2025/04.png" width="203px">
+</a>
+<a href="2025/05/Day05.cs">
+  <img src=".aoc_tiles/tiles/2025/05.png" width="203px">
+</a>
+<a href="2025/06/Day06.cs">
+  <img src=".aoc_tiles/tiles/2025/06.png" width="203px">
+</a>
+<a href="2025/07/Day07.cs">
+  <img src=".aoc_tiles/tiles/2025/07.png" width="203px">
+</a>
+<a href="2025/08/Day08.cs">
+  <img src=".aoc_tiles/tiles/2025/08.png" width="203px">
+</a>
+<a href="2025/09/Day09.cs">
+  <img src=".aoc_tiles/tiles/2025/09.png" width="203px">
+</a>
+<a href="2025/10/Day10.cs">
+  <img src=".aoc_tiles/tiles/2025/10.png" width="203px">
+</a>
+<a href="2025/11/Day11.cs">
+  <img src=".aoc_tiles/tiles/2025/11.png" width="203px">
+</a>
+<a href="2025/12/Day12.cs">
+  <img src=".aoc_tiles/tiles/2025/12.png" width="203px">
+</a>
 <h1 align="center">
   2024 - 50 ⭐ - Java
 </h1>
